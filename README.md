@@ -1,3 +1,5 @@
+
+
 # Personal Portfólio
 
 ### This is my personal portfólio where you can find a little about me and some projects a developed recently.
@@ -9,7 +11,8 @@
 <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/3.2.0/styled-components.svg" width="70px">
 <img src="https://camo.githubusercontent.com/20ffa1c9a31e2c991c8b52b0cb7be938de51db4b7a9299658fef28efb0cc845a/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f6a6176612f6a6176612d6f726967696e616c2e737667" width="70px">
 <img src="https://camo.githubusercontent.com/d536b9cc0c533324368535ece721f5424f28eae3ec0e6f3847408948ecacfce6/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f706f737467726573716c2f706f737467726573716c2d6f726967696e616c2e737667" width="60px">
-<img src="https://camo.githubusercontent.com/0ad01a8a7559f001752574a694d7b0f82253e5e8d07483c781ef3f8d0eeb20b7/68747470733a2f2f737072696e672e696f2f696d616765732f737072696e672d6c6f676f2d39313436613464333239383736306332653765343935393531383465313937352e737667" width="240px">
+<img src="https://img.icons8.com/color/1x/spring-logo.png" width="60px">
+
 
 ## Developed by Eduardo Paixão
 
