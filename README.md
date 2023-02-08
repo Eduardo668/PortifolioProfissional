@@ -3,7 +3,7 @@
 # Personal Portfólio
 
 ### This is my personal portfólio where you can find a little about me and some projects a developed recently.
-### He is a fullstack project with frontend and backend.
+### It is a fullstack project with frontend and backend.
 
 ### Made with
 <img src="https://camo.githubusercontent.com/393e6dcf504f503ca2a41f56841910e63c35718d5e0e669551fb941f79182692/68747470733a2f2f63646e2e63646e6c6f676f2e636f6d2f6c6f676f732f742f39362f747970657363726970742e737667" width="70px">
