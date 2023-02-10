@@ -48,7 +48,7 @@ export const Card = styled.div`
     }
 
     .div-buttons{
-        /* border: 2px solid red; */
+        /* border: 2px solid red;yastr   */
         width:100%;
         display: flex;
         justify-content: center;
@@ -58,7 +58,7 @@ export const Card = styled.div`
 
 `
 export const BtnCard = styled.button`
-    width: 90px;
+    width: 100px;
     height: 50px;
     margin:20px;
     border-radius:20px;
@@ -77,6 +77,10 @@ export const BtnCard = styled.button`
         background-color: ${props => props.theme.bgHover};
         transition:0.5s;
         
+    }
+    
+    h4{
+        margin:10px;
     }
 
 `

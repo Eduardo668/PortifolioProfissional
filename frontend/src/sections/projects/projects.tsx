@@ -28,6 +28,9 @@ export default function Projects() {
         <ProjectsBox>
           <div className="div-cards">
             <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+           
              
           </div>
         </ProjectsBox>

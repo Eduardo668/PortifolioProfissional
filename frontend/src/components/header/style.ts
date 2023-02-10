@@ -20,7 +20,10 @@ export const HeaderContainer = styled.div`
         height: 100%;
         .title{
             color: white;
-            font-family: monospace;
+            font-family: "Poppins";
+            @media (max-width:500px){
+                font-size:0.8em;
+            }
         }
     }
     .nav-bar{
@@ -35,7 +38,10 @@ export const HeaderContainer = styled.div`
             border: transparent;
             color: white;
             cursor: pointer;
-            font-family:monospace;
+            font-family:"Poppins";
+            @media (max-width:500px){
+                font-size:0.8em;
+            }
             :hover{
                 color:gray;
                 transition: 1s;

@@ -4,8 +4,8 @@ import { BoxWelcome, WelcomeContainer} from "./style";
 import { Title } from "../../global/GlobalStyle";
 import ImageWelcome from "../../assets/ImageWelcome.svg";
 import DownloadIcon from "../../assets/download.svg"
-import Arrow from "../../assets/Seta.svg"
 import { scrollToAboutMe } from "../../functions/ScrollFuntions";
+import ButtonScroll from "../../components/btn-scroll/btn-scroll";
 export default function Welcome() {
 
 
@@ -27,9 +27,7 @@ export default function Welcome() {
               <button type={"button"} className="btn-download" >Baixar meu curriculo <img src={DownloadIcon} alt="" /></button>
           </div>
           <div className="scroll-btn-div">
-              <button onClick={scrollToAboutMe} className="scroll-btn" >
-                  <img src={Arrow} alt="" />
-              </button>
+             <ButtonScroll scrollFunction={scrollToAboutMe}  />
           </div>
         </BoxWelcome>
         <BoxWelcome>

@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { Section, Title } from "../../global/GlobalStyle";
 import { AboutMeContainer, BoxAboutMe } from "./style";
 import ImageAboutMe from "../../assets/about-me-img.svg";
+import ButtonScroll from "../../components/btn-scroll/btn-scroll";
+import { scrollToSkills } from "../..//functions/ScrollFuntions";
 
 export default function AboutMe() {
 
@@ -37,6 +39,9 @@ export default function AboutMe() {
               ensino médio e hoje procuro oportunidades de adentrar ao mercado
               de desenvolvimento de software.
             </p>
+          </div>
+          <div className="div-scroll-skills" >
+                <ButtonScroll scrollFunction={scrollToSkills} />
           </div>
         </BoxAboutMe>
         <BoxAboutMe

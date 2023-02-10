@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     body{
         background-color: #222831;
         overflow-x:hidden;
-        overflow-y:hidden;
+        overflow-y:hidden; 
     }
     *{
         padding: 0;

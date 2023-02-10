@@ -16,13 +16,21 @@ export const SkillsContainer = styled.div`
         align-items: center;
         /* border: 2px solid yellow; */
     }
+
+    .div-scroll-projects{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     
 
 `
 
 export const BoxSkills = styled.div`
     width: 80%;
-    height: 70%;
+    height: 50%;
     display: flex;
     /* border: 2px solid cyan; */
     justify-content: center;

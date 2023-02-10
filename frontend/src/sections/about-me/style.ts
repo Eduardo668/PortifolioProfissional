@@ -30,6 +30,14 @@ export const BoxAboutMe = styled.div`
         }   
     }
 
+    .div-scroll-skills{
+        width: 100%;
+        /* border: 2px solid red; */
+        display: flex;
+        height: 40%;
+        justify-content: center;
+    }
+
     .img-about-me{
         @media (max-width:1100px){
             width:500px;
@@ -69,6 +77,9 @@ export const BoxAboutMe = styled.div`
             font-size: 1.17em;
             @media (max-width:500px){
                 font-size: 1em;
+            }
+            @media (max-height:740px) and (max-width: 600px){
+                font-size:0.8em;
             }
             
         }

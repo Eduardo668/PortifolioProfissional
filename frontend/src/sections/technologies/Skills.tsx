@@ -12,6 +12,8 @@ import JsIcon from "../../assets/javascript.svg";
 import HtmlIcon from "../../assets/html-1.svg";
 import CssIcon from "../../assets/css-3.svg";
 import ReactIcon from "../../assets/react.svg";
+import ButtonScroll from "../../components/btn-scroll/btn-scroll";
+import { scrollToProjects } from "../../functions/ScrollFuntions";
 
 export default function Skills(){
 
@@ -33,7 +35,11 @@ export default function Skills(){
                     <SkillItem title="Javascript" image={JsIcon} />
                     <SkillItem title="CSS 3" image={CssIcon} />
                     <SkillItem title="React" image={ReactIcon} />
+                    
               </BoxSkills>
+              <div className="div-scroll-projects" >
+                    <ButtonScroll scrollFunction={scrollToProjects} />
+              </div>
             </SkillsContainer> 
         </Section>
     )

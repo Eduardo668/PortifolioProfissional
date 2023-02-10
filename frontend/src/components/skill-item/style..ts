@@ -2,14 +2,14 @@ import styled from "styled-components";
 import "@fontsource/poppins/600.css";
 
 export const SkiilItemContainer = styled.div`
-     width: 7rem;
-     height: 7rem;
+     width: 5rem;
+     height: 2rem;
      display: flex;
      flex-direction:column;
      align-items: center;
      justify-content: center;
      /* border: 2px solid white; */
-     margin: 2rem;
+     margin: 3rem;
 
      @media (max-width:880px){
          width: 5em;
@@ -31,7 +31,7 @@ export const SkiilItemContainer = styled.div`
          }
      }
      .img-skill{
-        width: 5rem;
+        width: 4rem;
         @media (max-width:540px){
          width: 2em;
         

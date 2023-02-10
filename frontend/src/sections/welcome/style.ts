@@ -40,21 +40,7 @@ export const BoxWelcome = styled.div`
             }
         }
         /* border: 2px solid red; */
-        .scroll-btn{
-            background-color: #393E46;
-            width: 96px;
-            height: 96px;
-            cursor: pointer;
-            border: transparent;
-            @media screen {
-            @media (max-width: 1000px){
-                width: 76px;
-                height: 76px;
-                margin-top:20px;
-                
-            }
-        }
-        }
+       
     }
 
     .img-welcome{
