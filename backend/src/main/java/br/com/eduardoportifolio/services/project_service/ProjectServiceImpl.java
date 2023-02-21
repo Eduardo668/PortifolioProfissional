@@ -40,7 +40,7 @@ public class ProjectServiceImpl implements ProjectService {
         try{
             Optional<ProjectModel> project_data = projectRepository.findById(project_id);
             if (project_data.isEmpty()){
-                throw new RuntimeException("This project don't exists");
+                throw new RuntimeException("This project doesn't exist");
             }
 
             projectRepository.delete(project_data.get());
@@ -54,7 +54,7 @@ public class ProjectServiceImpl implements ProjectService {
         try{
             Optional<ProjectModel> project_data = projectRepository.findById(project_id);
             if (project_data.isEmpty()){
-                throw new RuntimeException("This project don't exists");
+                throw new RuntimeException("This project doesn't exist");
             }
             editWithoutProjectName.editUser(project_data, edited_project);
             editWithoutCodeLink.editUser(project_data, edited_project);

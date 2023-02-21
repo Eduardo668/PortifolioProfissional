@@ -13,4 +13,8 @@ public interface AdminService  {
 
     void refreshToken(HttpServletRequest request, HttpServletResponse response);
 
+    String findCurriculum();
+
+    void addCurriculum(String curriculumUrl);
+
 }

@@ -9,7 +9,7 @@ import java.util.Optional;
 public class EditWithoutType implements EditProjectStrategy{
     @Override
     public void editUser(Optional<ProjectModel> project_data, ProjectModel edited_project) {
-        if (edited_project.getType() == null){
+        if (edited_project.getType() == null || edited_project.getType() == ""){
             project_data.map(project ->{
                 project.setType(project_data.get().getType());
                 return project_data.get();

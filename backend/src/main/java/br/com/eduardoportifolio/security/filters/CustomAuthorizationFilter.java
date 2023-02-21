@@ -3,6 +3,8 @@ package br.com.eduardoportifolio.security.filters;
 import br.com.eduardoportifolio.models.AdminModel;
 import br.com.eduardoportifolio.repositories.AdminRepository;
 import br.com.eduardoportifolio.util.AlgorithmUtil;
+import br.com.eduardoportifolio.util.AuthorizedPathsUtil;
+
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.interfaces.DecodedJWT;
@@ -35,21 +37,21 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
 
     private final AlgorithmUtil algorithmUtil;
     private final AdminRepository adminRepository;
+    private final AuthorizedPathsUtil authorizedPaths;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
-                                    HttpServletResponse response, FilterChain filterChain)
+            HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-        if (request.getServletPath().equals("/login") || request.getServletPath().equals("/api/admin/createAdmin")
-                || request.getServletPath().equals("/api/admin/token/refresh")){
-
+        authorizedPaths.defineAuthorizedPaths();
+        if (authorizedPaths.verifyPath(request.getServletPath())) {
             filterChain.doFilter(request, response);
-        } else {
 
+        } else {
             String authorization_header = request.getHeader(AUTHORIZATION);
 
-            if (authorization_header != null && authorization_header.startsWith("Bearer ")){
+            if (authorization_header != null && authorization_header.startsWith("Bearer ")) {
 
                 try {
 
@@ -62,38 +64,30 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
 
                     Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
-                    Arrays.stream(roles).forEach(role ->{
+                    Arrays.stream(roles).forEach(role -> {
                         authorities.add(new SimpleGrantedAuthority(role));
                     });
 
                     Optional<AdminModel> admin_data = adminRepository.findById(Long.valueOf(admin_id));
-                    if (admin_data.isEmpty()){
+                    if (admin_data.isEmpty()) {
                         throw new RuntimeException("This admin don't exists!");
                     }
 
-                    UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
-                            new UsernamePasswordAuthenticationToken(admin_data.get().getUsername(),
-                                    admin_data.get().getPassword(), authorities);
+                    UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
+                            admin_data.get().getUsername(),
+                            admin_data.get().getPassword(), authorities);
 
                     SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
 
-
                     filterChain.doFilter(request, response);
 
-                } catch (Exception error){
+                } catch (Exception error) {
                     throw new RuntimeException("An error occurred while trying to Authorize a request:", error);
                 }
 
-
             }
 
-
-
         }
-
-
-
-        
 
     }
 }

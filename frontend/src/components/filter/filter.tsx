@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { FilterButton } from "./style";
 
 type Props = {
-    name:string
+    name:string,
+    setType:()=>void,
+    bg_color:string
+
 }
 
-export default function Filter({name}:Props){
+export default function Filter({name, setType, bg_color}:Props){
+
     return(
-        <FilterButton>
+        <FilterButton theme={{bgColor:bg_color}}
+         onClick={setType} >
             {name}
         </FilterButton>
     )

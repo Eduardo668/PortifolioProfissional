@@ -11,15 +11,19 @@ export const Card = styled.div`
     display: flex;
     border-radius: 16px;
     backdrop-filter: blur(2px);
+    align-items: center;
+    justify-content: flex-end;
     .div-image{
-        width: 100%;
-        height: 50%;
+        width: 250px;
+        height: 45%;
         /* border: 1px solid white; */
-        display: flex;
+        /* display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: center; */
         .project-img{
             width: 250px;
+            height: 100%;
+            object-fit:cover;
         }
     }
     .div-card-title{
@@ -32,6 +36,7 @@ export const Card = styled.div`
         .title{
             color: white;
             font-family:"Poppins";
+            font-size: 1.2em;
             font-weight: 600;
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 

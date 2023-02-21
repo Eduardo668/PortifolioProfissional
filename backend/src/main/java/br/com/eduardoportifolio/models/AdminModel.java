@@ -27,6 +27,9 @@ public class AdminModel {
     @Size(max = 400)
     private String password;
 
+    @Size(max = 400)
+    private String curriculum_link;
+
     @ElementCollection(fetch = FetchType.EAGER)
     @NotNull
     private List<String> roles;

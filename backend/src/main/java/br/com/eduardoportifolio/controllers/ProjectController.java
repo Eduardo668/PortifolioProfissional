@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/project")
+@CrossOrigin("http://localhost:5173")
 public class ProjectController {
 
     private final ProjectServiceImpl projectService;
@@ -26,10 +27,10 @@ public class ProjectController {
         return ResponseEntity.ok().body("OK");
     }
 
-    @GetMapping("/filterProjects/type={type}")
-    public ResponseEntity<List<ProjectModel>> filterProjects(@PathVariable("type") String type){
-        return ResponseEntity.ok().body(projectService.findProjectsByType(type));
-    }
+    // @GetMapping("/filterProjects/type={type}")
+    // public ResponseEntity<List<ProjectModel>> filterProjects(@PathVariable("type") String type){
+    //     return ResponseEntity.ok().body(projectService.findProjectsByType(type));
+    // }
 
     @DeleteMapping("/deleteProject/id={project_id}")
     public void deleteProject(@PathVariable("project_id") Long project_id){

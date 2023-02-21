@@ -38,7 +38,7 @@ export const ModalContainer = styled.div`
             justify-content: center;
             align-items: flex-start;
             margin: 10px;
-            .btn-add-tags{
+            .btn-add{
                 width:310px;
                 height: 30px;
                 border-radius:10px;
@@ -87,6 +87,14 @@ export const ModalContainer = styled.div`
                 height: 200px;
                 border: 2px solid #00ADB5;
                 border-radius:10px;
+                img{
+                    width: 300px;
+                    height: 200px;
+                    object-fit: cover;
+                    border-radius:7px;
+                    
+
+                }
                 
             }
     }

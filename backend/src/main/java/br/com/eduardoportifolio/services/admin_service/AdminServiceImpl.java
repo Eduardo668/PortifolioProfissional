@@ -21,7 +21,7 @@ import static org.springframework.http.HttpHeaders.COOKIE;
 
 @Service
 @RequiredArgsConstructor
-public class AdminServiceImpl implements AdminService{
+public class AdminServiceImpl implements AdminService {
 
     private final AdminRepository adminRepository;
 
@@ -29,36 +29,40 @@ public class AdminServiceImpl implements AdminService{
 
     private final AlgorithmUtil algorithmUtil;
 
+    private String refresh_token;
+
     @Override
     public AdminModel createAdmin(AdminModel admin) {
-        try{
+        try {
             AdminModel admin_data = adminRepository.findByUsername(admin.getUsername());
-            if (admin_data != null){
+            if (admin_data != null) {
                 throw new RuntimeException("This username already exists!!");
             }
 
             admin.setPassword(passwordEncoder.encode(admin.getPassword()));
 
             return adminRepository.save(admin);
-        }
-        catch (Exception error){
+        } catch (Exception error) {
             throw new RuntimeException("An error occurred while trying to create an admin: ", error);
         }
     }
 
     @Override
     public void refreshToken(HttpServletRequest request, HttpServletResponse response) {
-        String cookie_header = request.getHeader(COOKIE);
+        Cookie[] request_cookie = request.getCookies();
+        if (request_cookie != null) {
+            Arrays.stream(request_cookie).forEach(cookie -> {
+                if (cookie.getName().equals("refresh_token")) {
+                    this.refresh_token = cookie.getValue().toString();
+                }
+            });
+        }
 
-        if (cookie_header != null){
+        if (this.refresh_token != null) {
 
             try {
 
-                String refresh_token = cookie_header.substring("refresh_token=".length());
-                System.out.println(refresh_token);
-
                 JWTVerifier verifier = JWT.require(algorithmUtil.defineAlgorithm()).build();
-
                 DecodedJWT decodedJWT = verifier.verify(refresh_token);
 
                 String admin_id = decodedJWT.getSubject();
@@ -66,7 +70,7 @@ public class AdminServiceImpl implements AdminService{
 
                 List<String> roles = new ArrayList<>();
 
-                admin_data.get().getRoles().forEach(role ->{
+                admin_data.get().getRoles().forEach(role -> {
                     roles.add(role);
                 });
 
@@ -77,18 +81,29 @@ public class AdminServiceImpl implements AdminService{
                         .withExpiresAt(new Date(System.currentTimeMillis() + 3600000))
                         .sign(algorithmUtil.defineAlgorithm());
 
-
                 Map<String, String> token = new HashMap<>();
                 token.put("access_token", new_access_token);
                 new ObjectMapper().writeValue(response.getOutputStream(), token);
 
-            } catch (Exception error){
+            } catch (Exception error) {
                 throw new RuntimeException("An error occurred while trying refresh the access token:", error);
             }
-
 
         }
     }
 
+    @Override
+    public String findCurriculum() {
+        return adminRepository.findById(1L).get().getCurriculum_link();
+    }
+
+    @Override
+    public void addCurriculum(String curriculumUrl) {
+        Optional<AdminModel> adminData = adminRepository.findById(1L);
+
+        adminData.get().setCurriculum_link(curriculumUrl);
+        adminRepository.save(adminData.get());
+
+    }
 
 }

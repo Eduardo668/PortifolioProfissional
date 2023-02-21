@@ -10,8 +10,8 @@ public class EditWithoutCodeLink implements EditProjectStrategy {
 
     @Override
     public void editUser(Optional<ProjectModel> project_data, ProjectModel edited_project) {
-        if (edited_project.getCode_link() == null){
-            System.out.println("PAssoul code link");
+        if (edited_project.getCode_link() == null || edited_project.getCode_link() == ""){
+
             project_data.map(project ->{
                 project.setCode_link(project_data.get().getCode_link());
                 return project_data.get();

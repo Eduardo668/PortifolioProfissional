@@ -11,9 +11,10 @@ export const FilterButton = styled.button`
     font-weight: 700;
     cursor: pointer;
     font-style:normal;
-    background: rgba(57, 62, 70);
+    background:${props => props.theme.bgColor} ;
     border: transparent;
     margin: 1em;
+    
     :hover{
         background-color: #00ADB5;
         transition:0.5s;

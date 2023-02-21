@@ -8,10 +8,11 @@ import { ModalContainer } from "./style";
 import AOS from "aos";
 
 type Props = {
-  closeModal: () => void;
+  closeModal: () => void,
+  deleteProject:()=>void
 };
 
-export default function ModalDelete({ closeModal }: Props) {
+export default function ModalDelete({ closeModal, deleteProject }: Props) {
   useEffect(() => {
     AOS.init({
       duration: 500,
@@ -25,7 +26,7 @@ export default function ModalDelete({ closeModal }: Props) {
           <h2 className="title">Voce deseja deletar este projeto?</h2>
         </div>
         <ModalFooter>
-          <ButtonModal theme={{ bgColor: "#00ADB5" }}>Sim</ButtonModal>
+          <ButtonModal onClick={()=>deleteProject()} theme={{ bgColor: "#00ADB5" }}>Sim</ButtonModal>
           <ButtonModal onClick={closeModal} theme={{ bgColor: "#222222" }}>
             Não
           </ButtonModal>

@@ -6,8 +6,16 @@ import ImageWelcome from "../../assets/ImageWelcome.svg";
 import DownloadIcon from "../../assets/download.svg"
 import { scrollToAboutMe } from "../../functions/ScrollFuntions";
 import ButtonScroll from "../../components/btn-scroll/btn-scroll";
+import { IoMdPaper } from "react-icons/io";
+import {useQuery} from "react-query"
+import findCurriculum from "../../api/find-curriculum";
 export default function Welcome() {
 
+  const {data:curriculumData} = useQuery("curriculum", ()=>findCurriculum());
+
+  const openCurriculum = ()=>{
+    window.open(curriculumData.curriculumLink, "_blank")
+  }
 
   return (
     <Section id="home">
@@ -24,7 +32,7 @@ export default function Welcome() {
               }}>Portifolio</Title>
           </div>
           <div className="btn-div">
-              <button type={"button"} className="btn-download" >Baixar meu curriculo <img src={DownloadIcon} alt="" /></button>
+              <button onClick={openCurriculum} type={"button"} className="btn-currriculum" ><h4>Ver meu curriculo </h4><IoMdPaper size={"2em"} /> </button>
           </div>
           <div className="scroll-btn-div">
              <ButtonScroll scrollFunction={scrollToAboutMe}  />

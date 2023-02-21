@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ModalContainer = styled.div`
     width:330px;
-    height: 200px;
+    height: 220px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -27,12 +27,26 @@ export const ModalContainer = styled.div`
         width: 90%;
         height: 50%;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         /* border: 2px solid yellow; */
+        button{
+            margin-top:10px;
+            width: 150px;
+            border-radius:10px;
+            border:transparent;
+            cursor: pointer;
+            background-color:#00ADB5;
+            color:white;
+            font-family: "Poppins";
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+            padding: 5px;
+        }
         .input-file{
             border: 2px solid #00ADB5;
             padding: 10px;
+            width: 270px;
             border-radius: 10px;
             color: white;
             font-family: "Poppins";

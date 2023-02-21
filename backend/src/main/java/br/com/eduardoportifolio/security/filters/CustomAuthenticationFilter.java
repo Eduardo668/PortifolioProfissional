@@ -11,6 +11,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseCookie;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -26,60 +30,56 @@ import java.util.*;
 @Slf4j
 public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
-    private final AdminRepository adminRepository;
-    private final AuthenticationManager authenticationManager;
+        private final AdminRepository adminRepository;
+        private final AuthenticationManager authenticationManager;
 
-    private final AlgorithmUtil algorithmUtil;
+        private final AlgorithmUtil algorithmUtil;
 
-    @Override
-    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        @Override
+        public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
+                        throws AuthenticationException {
+                String username = request.getParameter("username");
+                String password = request.getParameter("password");
 
-        UsernamePasswordAuthenticationToken authenticationToken =
-                new UsernamePasswordAuthenticationToken(username, password);
+                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+                                username, password);
 
-        return authenticationManager.authenticate(authenticationToken);
-    }
+                return authenticationManager.authenticate(authenticationToken);
+        }
 
-    @Override
-    protected void successfulAuthentication(HttpServletRequest request,
-                                            HttpServletResponse response,
-                                            FilterChain chain, Authentication auth) throws IOException, ServletException {
-        User user_details = (User)auth.getPrincipal();
-        AdminModel admin_data = adminRepository.findByUsername(user_details.getUsername());
+        @Override
+        protected void successfulAuthentication(HttpServletRequest request,
+                        HttpServletResponse response,
+                        FilterChain chain, Authentication auth) throws IOException, ServletException {
+                User user_details = (User) auth.getPrincipal();
+                AdminModel admin_data = adminRepository.findByUsername(user_details.getUsername());
 
-        List<String> roles = new ArrayList<>();
-        admin_data.getRoles().forEach(role ->{
-            roles.add(role);
-        });
+                List<String> roles = new ArrayList<>();
+                admin_data.getRoles().forEach(role -> {
+                        roles.add(role);
+                });
 
-        String access_token = JWT.create()
-                .withSubject(admin_data.getId().toString())
-                .withExpiresAt(new Date(System.currentTimeMillis() + 3600000))
-                .withIssuer("Eduardo Portifolio API")
-                .withClaim("roles", roles)
-                .sign(algorithmUtil.defineAlgorithm());
+                String access_token = JWT.create()
+                                .withSubject(admin_data.getId().toString())
+                                .withExpiresAt(new Date(System.currentTimeMillis() + 3600000))
+                                .withIssuer("Eduardo Portifolio API")
+                                .withClaim("roles", roles)
+                                .sign(algorithmUtil.defineAlgorithm());
 
-        String refresh_token = JWT.create()
-                .withSubject(admin_data.getId().toString())
-                .withExpiresAt(new Date(System.currentTimeMillis() + 2629000L * 1000))
-                .withIssuer("Eduardo Portifolio API")
-                .sign(algorithmUtil.defineAlgorithm());
+                String refresh_token = JWT.create()
+                                .withSubject(admin_data.getId().toString())
+                                .withExpiresAt(new Date(System.currentTimeMillis() + 2629000L * 1000))
+                                .withIssuer("Eduardo Portifolio API")
+                                .sign(algorithmUtil.defineAlgorithm());
 
+                Cookie refresh_token_cookie = new Cookie("refresh_token", refresh_token);
+                refresh_token_cookie.setMaxAge(2592000); // 1 month
+                refresh_token_cookie.setHttpOnly(true);
+                response.addCookie(refresh_token_cookie);
 
-        Map<String, String> token = new HashMap<>();
-        token.put("access_token", access_token);
-        new ObjectMapper().writeValue(response.getOutputStream(), token);
+                Map<String, String> token = new HashMap<>();
+                token.put("access_token", access_token);
+                new ObjectMapper().writeValue(response.getOutputStream(), token);
 
-
-        Cookie refresh_token_cookie = new Cookie("refresh_token", refresh_token);
-        refresh_token_cookie.setMaxAge(2592000); // 1 month
-        refresh_token_cookie.setHttpOnly(true);
-//        refresh_token_cookie.setSecure(true);
-
-        response.addCookie(refresh_token_cookie);
-
-
-    }
+        }
 }

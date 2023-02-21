@@ -9,7 +9,7 @@ import java.util.Optional;
 public class EditWithoutSiteLink implements EditProjectStrategy{
     @Override
     public void editUser(Optional<ProjectModel> project_data, ProjectModel edited_project) {
-        if (edited_project.getSite_link() == null){
+        if (edited_project.getSite_link() == null || edited_project.getSite_link() == ""){
             project_data.map(project ->{
                 project.setSite_link(project_data.get().getSite_link() );
                 return project_data.get();

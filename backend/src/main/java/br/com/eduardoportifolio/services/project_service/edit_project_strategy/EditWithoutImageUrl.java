@@ -9,7 +9,7 @@ import java.util.Optional;
 public class EditWithoutImageUrl implements EditProjectStrategy{
     @Override
     public void editUser(Optional<ProjectModel> project_data, ProjectModel edited_project) {
-        if (edited_project.getImage_url() == null){
+        if (edited_project.getImage_url() == null || edited_project.getImage_url() == ""){
             project_data.map(project ->{
                 project.setImage_url(project_data.get().getImage_url());
                 return project_data.get();

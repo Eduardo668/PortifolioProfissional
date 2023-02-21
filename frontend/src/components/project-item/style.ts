@@ -19,17 +19,18 @@ export const ItemContainer = styled.div`
     }
 
     .div-image{
-        width: 100%;
+        width: 250px;
         height: 50%;
         /* border:2px solid white; */
-        display: flex;
+        /* display: flex;
         justify-content:center;
-        align-items: center;
+        align-items: center; */
         .img-project{
-            max-width:100%;
-            max-height:100%;
+            /* max-width:100%;
+            max-height:100%; */
             width: 250px;
-            height: 250px;
+            height: 100%;
+            object-fit: cover;
        
             
         }

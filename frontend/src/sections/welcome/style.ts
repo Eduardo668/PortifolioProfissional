@@ -66,7 +66,7 @@ export const BoxWelcome = styled.div`
                 justify-content: center;
             }   
         }
-        .btn-download{
+        .btn-currriculum{
             background-color: #393E46;
             border: transparent;
             font-family:"Poppins";
@@ -79,8 +79,11 @@ export const BoxWelcome = styled.div`
             font-weight: 700;
             display: flex;
             flex-direction:row;
-            justify-content: space-evenly;
+            justify-content:center;
             align-items: center;
+            h4{
+                margin:10px;
+            }
             :hover{
                 background-color: gray;
                 transition:0.5s;

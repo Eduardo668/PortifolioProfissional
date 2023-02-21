@@ -10,8 +10,7 @@ public class EditWithoutProjectName implements EditProjectStrategy{
 
     @Override
     public void editUser(Optional<ProjectModel> project_data, ProjectModel edited_project) {
-        if (edited_project.getProject_name() == null){
-            System.out.println("PAssoul name");
+        if (edited_project.getProject_name() == null  || edited_project.getProject_name() == ""){
             project_data.map(project ->{
                 project.setProject_name(project_data.get().getProject_name());
                 return project_data.get();
