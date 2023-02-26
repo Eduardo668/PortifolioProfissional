@@ -10,8 +10,6 @@ export const scrollToAboutMe = ()=>{
     if (section){
       section.scrollIntoView({behavior:"smooth"})
     }
-
-
 }
 
 export const scrollToSkills = ()=>{
@@ -19,11 +17,18 @@ export const scrollToSkills = ()=>{
     if (section){
       section.scrollIntoView({behavior:"smooth"})
     }
+}
+
+export const scrollToProjects = ()=>{
+  const section = document.getElementById("projects")
+  if (section){
+    section.scrollIntoView({behavior:"smooth"})
+  }
 
 
 }
-export const scrollToProjects = ()=>{
-  const section = document.getElementById("projects")
+export const scrollToContact = ()=>{
+  const section = document.getElementById("contact")
   if (section){
     section.scrollIntoView({behavior:"smooth"})
   }

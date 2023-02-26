@@ -5,6 +5,7 @@ import {
   scrollToHome,
   scrollToSkills,
   scrollToProjects,
+  scrollToContact
 } from "../../functions/ScrollFuntions";
 
 export default function Header() {
@@ -25,6 +26,7 @@ export default function Header() {
             Skills
           </button>
           <button onClick={scrollToProjects} className="item">Projects</button>
+          <button onClick={scrollToContact} className="item">Extra</button>
         </div>
       </HeaderContainer>
     </>

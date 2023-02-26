@@ -12,6 +12,8 @@ export const GlobalStyle = createGlobalStyle`
     *{
         padding: 0;
         margin: 0;
+        /* overflow-x:hidden;
+        overflow-y:hidden;  */
     }
 
 `
@@ -22,6 +24,8 @@ export const Section = styled.div`
     /* overflow-x:scroll; */
     height: 100vh;
     /* border: 2px solid white; */
+    overflow-x:hidden;
+    overflow-y:hidden; 
 
 `
 export const Title = styled.h1`
@@ -37,7 +41,7 @@ export const Title = styled.h1`
                 font-size:3.5em;
             }    */
             @media (max-width:430px){
-                font-size:2.5em;
+                font-size:${props =>props.theme.media_font};
             }   
         }
 

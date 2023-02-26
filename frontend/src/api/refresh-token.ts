@@ -10,4 +10,6 @@ export default async function refreshToken(){
     })
     setAccessToken(response.data["access_token"]);
 
+    return response.status;
+
 }

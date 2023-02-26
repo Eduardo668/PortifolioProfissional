@@ -4,10 +4,10 @@ import App from "./app";
 import { GlobalStyle } from "./global/GlobalStyle";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
-import Navigation from "./router";
+import Navigation from "./router/router";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools"
 import refreshToken from "./api/refresh-token";
+import { accessToken } from "./api/login";
 
 const queryClient = new QueryClient();
 
@@ -21,7 +21,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <QueryClientProvider client={queryClient} >
         <Navigation />
         <GlobalStyle />
-        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </BrowserRouter>
   </>

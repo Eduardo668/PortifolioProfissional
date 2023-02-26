@@ -5,7 +5,7 @@ import java.util.List;
 
 public final class AuthorizedPathsUtil {
     
-    private static List<String> authorizedPaths = new ArrayList();
+    private static List<String> authorizedPaths = new ArrayList<String>();
 
     private Boolean isAuthorizedPath;
 

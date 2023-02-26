@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { BtnCard, Card } from "./style";
 import SiteImg from "../../assets/site-img.svg";
 import Tag from "../tag/tag";
 import { AiOutlineEye } from "react-icons/ai";
 import { BsCodeSlash } from "react-icons/bs";
 import ProjectModel from "../../types/ProjectModel";
+import AOS from "aos";
 
 type Props = {
   project_data: ProjectModel;
@@ -19,8 +20,14 @@ export default function ProjectCard({ project_data }: Props) {
     window.open(project_data.code_link, "__blank");
   };
 
+  useEffect(()=>{
+    AOS.init({
+      duration: 1500
+    })
+  }, []);
+
   return (
-    <Card>
+    <Card data-aos="fade-right" >
       <div className="div-image">
         <img className="project-img" src={project_data.image_url} alt="" />
       </div>

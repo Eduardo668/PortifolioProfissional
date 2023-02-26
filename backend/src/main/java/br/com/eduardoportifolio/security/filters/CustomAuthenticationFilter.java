@@ -75,6 +75,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
                 Cookie refresh_token_cookie = new Cookie("refresh_token", refresh_token);
                 refresh_token_cookie.setMaxAge(2592000); // 1 month
                 refresh_token_cookie.setHttpOnly(true);
+                refresh_token_cookie.setSecure(true);
                 response.addCookie(refresh_token_cookie);
 
                 Map<String, String> token = new HashMap<>();

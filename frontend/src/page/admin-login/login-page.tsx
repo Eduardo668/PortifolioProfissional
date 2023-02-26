@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
-import login from "../../api/login";
+import login, { accessToken } from "../../api/login";
 import { Title } from "../../global/GlobalStyle";
 import { FormContainer, PageContainer } from "./style";
 
@@ -16,14 +16,18 @@ export default function LoginPage() {
     }
   );
 
- 
-
   const handleUsername = (username: string) => {
     setUsername(username);
   };
   const handlePassword = (password: string) => {
     setPassword(password);
   };
+
+  useEffect(()=>{
+    if (accessToken != ""){
+       navigate("/main/admin/root/page")
+    }
+  },[])
 
   return (
     <PageContainer>

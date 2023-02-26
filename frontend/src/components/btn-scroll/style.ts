@@ -5,6 +5,7 @@ export const ButtonStyles = styled.div`
             background-color: #393E46;
             width: 96px;
             height: 96px;
+            margin: 20px;
             cursor: pointer;
             border: transparent;
             @media screen {

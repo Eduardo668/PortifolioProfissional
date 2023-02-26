@@ -21,6 +21,7 @@ export const SkillsContainer = styled.div`
         width: 100%;
         height: auto;
         display: flex;
+        /* border: 2px solid red; */
         justify-content: center;
         align-items: center;
     }

@@ -190,9 +190,9 @@ export default function FormModal({ closeModal, project_model }: Props) {
               {project_model == null
                 ? tags.map((tag: string) => <Tag key={tag} name={tag} />)
                 : null}
-              {project_model != null && tags.length == 0
+              {/* {project_model != null && tags.length == 0
                 ? project_model.tags.map((tag) => <Tag key={tag} name={tag} />)
-                : tags.map((tag: string) => <Tag key={tag} name={tag} />)}
+                : tags.map((tag: string) => <Tag key={tag} name={tag} />)} */}
             </div>
           </div>
           <div className="input-div">
