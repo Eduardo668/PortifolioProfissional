@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/project")
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin("https://eduardoportifolio.netlify.app/")
 public class ProjectController {
 
     private final ProjectServiceImpl projectService;
