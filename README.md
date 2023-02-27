@@ -8,6 +8,7 @@
 ### This is my personal portfólio where you can find a little about me and some projects a developed recently.
 
 ### It is a fullstack project with frontend and backend.
+### Link: https://eduardoportifolio.netlify.app
 
 ### Class Diagram (UML)
 <img src="https://firebasestorage.googleapis.com/v0/b/storage-de-imagens-e99e4.appspot.com/o/portifolio-class.png?alt=media&token=aef9a8a4-0083-4538-bc0f-d9313e4d048d" />
@@ -30,10 +31,12 @@
 
 <img  src="https://img.icons8.com/color/1x/spring-logo.png"  width="60px">
 
+<img  src="https://camo.githubusercontent.com/20ffa1c9a31e2c991c8b52b0cb7be938de51db4b7a9299658fef28efb0cc845a/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f6a6176612f6a6176612d6f726967696e616c2e737667"  width="70px">
 
-<img width="70px" src="https://img.icons8.com/fluency/1x/docker.png" />
+  <img width="70px" src="https://img.icons8.com/fluency/1x/docker.png" />
 
   
   
 
 ## Developed by Eduardo Paixão
+
