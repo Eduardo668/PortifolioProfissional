@@ -13,7 +13,7 @@ export default function Header() {
     <>
       <HeaderContainer>
         <div className="div-title">
-          <h3 className="title">Portifolio</h3>
+          <h3 className="title">Portfólio</h3>
         </div>
         <div className="nav-bar">
           <button onClick={scrollToHome} className="item">

@@ -40,7 +40,7 @@ export default function Welcome() {
               color:"#00ADB5",
               font_size:"4.5em",
               media_font:"2.5em"
-              }}>Portifolio</Title> 
+              }}>Portfólio</Title> 
           </div>
           <div className="btn-div">
               <button data-aos="fade-right" onClick={openCurriculum} type={"button"} className="btn-currriculum" ><h4>Ver meu curriculo </h4><IoMdPaper size={"2em"} /> </button>

@@ -33,12 +33,12 @@ export default function Contact() {
               }
             />
             <ExtraCard
-              title="Codigo Fonte"
+              title="Código Fonte"
               link={"https://github.com/Eduardo668/PortifolioProfissional"}
-              buttonTitle="Ver codigo fonte"
+              buttonTitle="Ver código fonte"
               btnIcon={<AiFillGithub size={"1.5em"} />}
-              paragraph={
-                "Este portifolio é um projeto fullstack desenvolvido por mim utilizando as seguintes tecnologias Typescript, React, Java, Spring, Postgres"
+              paragraph={ 
+                "Este portfólio é um projeto fullstack, clique no botão abaixo para acessar o código fonte."
               }
             />
           </div>
