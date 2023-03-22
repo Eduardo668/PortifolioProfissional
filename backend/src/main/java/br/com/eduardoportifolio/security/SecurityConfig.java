@@ -102,7 +102,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(List.of("https://eduardoportifolio.netlify.app/","https://eduardopaixao.tech/"));
+        corsConfiguration.setAllowedOrigins(List.of("https://eduardoportifolio.netlify.app/","https://portfolio.eduardopaixao.tech/"));
         corsConfiguration
                 .setAllowedHeaders(List.of("Authorization", "Access-Control-Allow-Origin", "Content-Type", "Cookie"));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
