@@ -2,6 +2,6 @@ import axios from "axios";
 
 export const Api = axios.create(
     {
-        baseURL:"https://portfolioapi.eduardopaixao.tech"
+        baseURL:"https://portfolio-personal-api.fly.dev"
     }
 )
