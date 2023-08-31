@@ -8,7 +8,7 @@
 ### This is my personal portfólio where you can find a little about me and some projects a developed recently.
 
 ### It is a fullstack project with frontend and backend.
-### Link: https://portfolio.eduardopaixao.tech
+### Link: https://eduardopaixao.tech
 
 ### Class Diagram (UML)
 <img src="https://firebasestorage.googleapis.com/v0/b/storage-de-imagens-e99e4.appspot.com/o/portifolio-class.png?alt=media&token=aef9a8a4-0083-4538-bc0f-d9313e4d048d" />
